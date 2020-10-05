@@ -1,0 +1,218 @@
+body {
+  background-color: rgb(252, 251, 248);
+}
+* {
+  box-sizing: border-box;
+}
+li {
+  list-style-type: none;
+}
+h3 {
+  margin: 0px;
+}
+img {
+  width: 150px;
+  height: 150px;
+  background: lightgray;
+  position: relative;
+  right: 8%;
+}
+.hrLine {
+  height: 3px;
+  border-width: 0;
+  color: gray;
+  background-color: gray;
+  display: block;
+}
+.col-container {
+  display: flex;
+  width: 100%;
+}
+.col {
+  flex: 1;
+}
+h2 {
+  background-color: green;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px;
+  width: 300px;
+}
+h1,
+h2 {
+  margin: 0px;
+}
+/* horizontal col code ends*/
+.column1 {
+  float: left;
+  width: 60%;
+  padding: 10px;
+  height: auto;
+}
+.column2 {
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: auto;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  width: 30%;
+  text-align: center;
+  border: 2px solid gray;
+  padding-top: 2%;
+  float: left;
+  margin: 1%;
+}
+/* price list items*/
+.offer {
+  float: left;
+  background-color: green;
+  color: white;
+  padding: 2px;
+}
+.pricelist {
+  height: 70px;
+  background: lightgray;
+}
+.iteam {
+  display: block;
+  float: left;
+  padding: 2%;
+}
+.strike {
+  color: red;
+  text-decoration: line-through;
+  float: left;
+  padding-left: 2%;
+}
+
+.price {
+  color: #000;
+  font-size: 18px;
+}
+.princeOriginal {
+  font-weight: 700;
+  float: left;
+  padding-left: 4%;
+}
+.add-to-cart {
+  color: blue;
+  border: 2px solid blue;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 4px;
+  float: right;
+  padding: 2px;
+}
+/*price table1*/
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+input {
+  width: 40px;
+  border-radius: 3px;
+  height: 25px;
+}
+.sumValue {
+  border: 2px solid gray;
+  border-radius: 3px;
+}
+.delete-item {
+  margin: 0 5%;
+}
+.plus-item {
+  margin: 0 20% 0 0;
+}
+.bottom {
+  padding: 0 2%;
+}
+.bottom > span {
+  float: right;
+}
+
+.otherTotal {
+  height: 40px;
+  background-color: lightgray;
+  padding: 2%;
+}
+.otherTotal > span {
+  float: right;
+}
+#clear-cart {
+  width: 100%;
+}
+/* media queries*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 481px) {
+  .plus-item {
+    margin: 0 10% 0 0;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .col-container {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  h2 {
+    width: 100%;
+  }
+  .column1,
+  .column2 {
+    width: 100%;
+  }
+  .offer {
+    display: none;
+  }
+  .card {
+    width: 100%;
+  }
+  ul,
+  li {
+    margin: 0px;
+    padding: 0px;
+  }
+  img {
+    background: none;
+  }
+
+  .delete-item {
+    margin: 0 3%;
+  }
+  .princeOriginal {
+    padding-left: 10%;
+  }
+  .plus-item {
+    margin: 0 10% 0 0;
+  }
+}
+
+@media only screen and (min-width: 569px) {
+  .plus-item {
+    margin: 0 10% 0 0;
+  }
+}
+
+@media only screen and (min-width: 763px) {
+  .plus-item {
+    margin: 0 15% 0 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .plus-item {
+    margin: 0 13% 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+}

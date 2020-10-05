@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <hr class="hrLine" />
+    <div class="col-container">
+      <div class="col">
+        <h1>All Items</h1>
+      </div>
+
+      <div class="col">
+        <h2>Item <span id="count-cart">X</span> is added to cart</h2>
+      </div>
+    </div>
+
+    <hr class="hrLine" />
+    <!-- hr line ends *********************************-->
+
+    <div class="row">
+      <div class="column1">
+        <ul>
+          <li>
+            <div class="card">
+              <span class="offer">offer</span>
+              <img
+                src="https://www.ivyboarding.com/w3template/w3images/1010.png"
+                alt="coffee"
+              />
+              <div class="pricelist">
+                <p>
+                  <span class="iteam" >Iteam</span><br/>
+                </p>
+                <p>
+                  <span class="strike">
+                    <span class="price">$500</span>
+                  </span>
+                  <span class="price princeOriginal">$180.00</span>
+                  <a
+                    class="add-to-cart"
+                    href="#"
+                    data-name="Iteam1"
+                    data-price="180"
+                    >Add to Cart
+                  </a>
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card">
+              <span class="offer">offer</span>
+              <img
+                src="https://www.ivyboarding.com/w3template/w3images/1010.png"
+                alt="coffee"
+              />
+              <div class="pricelist">
+                <p>
+                  <span class="iteam" >Iteam</span><br/>
+                </p>
+                <p>
+                  <span class="strike">
+                    <span class="price">$500</span>
+                  </span>
+                  <span class="price princeOriginal">$212.50</span>
+                  <a
+                    class="add-to-cart"
+                    href="#"
+                    data-name="Iteam2"
+                    data-price="212.5">
+                    Add to Cart
+                  </a>
+              </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card">
+              <span class="offer">offer</span>
+              <img
+                src="https://www.ivyboarding.com/w3template/w3images/1010.png"
+                alt="coffee"
+              />
+              <div class="pricelist">
+                <p>
+                  <span class="iteam" >Iteam</span><br/>
+                </p>
+                <p>
+                  <span class="strike">
+                    <span class="price">$500</span>
+                  </span>
+                  <span class="price princeOriginal">$304</span>
+                  <a
+                  class="add-to-cart"
+                  href="#"
+                  data-name="Iteam3"
+                  data-price="304">
+                  Add to Cart
+                </a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="card">
+              <span class="offer">offer</span>
+              <img
+                src="https://www.ivyboarding.com/w3template/w3images/1010.png"
+                alt="coffee"
+              />
+              <div class="pricelist">
+                <p>
+                  <span class="iteam" >Iteam</span><br/>
+                </p>
+                    <p>
+                       <span class="strike">
+                          <span class="price">$500</span>
+                        </span>
+                        <span class="price princeOriginal">$142</span>
+                        <a
+                          class="add-to-cart"
+                          href="#"
+                          data-name="Iteam4"
+                          data-price="142">
+                          Add to Cart
+                        </a>
+                    </p>
+              </div>
+              </div>
+              </li>
+            </ul>
+      </div>
+      <div class="column2" >
+        <hr class="hrLine" />
+        <div class="row">
+          <div class="column" >
+            <h3>Iteams</h3>
+          </div>
+          <div class="column" >
+            <h3>Qty</h3>
+          </div>
+          <div class="column" >
+           <h3>Price</h3>
+          </div>
+        </div>
+        <hr class="hrLine" />
+        <div class="totalCol">
+          <ul id="show-cart">
+            <li>???????</li>
+          </ul>
+          <hr class="hrLine" />
+          <div class="sumValue">
+            <h4 class="bottom">Total</h4>
+            <div class="bottom">Items<span id="total-cart"></span></div>
+            <div class="bottom">Discount<span id="type-Discount"></span></div>
+          <div class="bottom">Type Discount<span id="total-Discount"></span></div>
+          <div class="otherTotal">Other Total<span id="other-Total"></span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <button id="clear-cart">Clear Cart</button>
+
+    <script src="js/shoppingCart.js"></script>
+
+    <script>
+      $(".add-to-cart").click(function (event) {
+        event.preventDefault();
+        var name = $(this).attr("data-name");
+        var price = Number($(this).attr("data-price"));
+
+        shoppingCart.addItemToCart(name, price, 1);
+        displayCart();
+      });
+
+      $("#clear-cart").click(function (event) {
+        shoppingCart.clearCart();
+        displayCart();
+      });
+
+      function displayCart() {
+        var cartArray = shoppingCart.listCart();
+        console.log(cartArray);
+        var output = "";
+
+        for (var i in cartArray) {
+          output +=
+            "<li>" +
+              
+            cartArray[i].name +
+            " <button class='delete-item' data-name='" +
+            cartArray[i].name +
+            "'>X</button>" +
+            " <button class='subtract-item' data-name='" +
+            cartArray[i].name +
+            "'>-</button>" +
+            " <input class='item-count' type='number' data-name='" +
+            cartArray[i].name +
+            "' value='" +
+            cartArray[i].count +
+            "' >" +
+            " <button class='plus-item' data-name='" +
+            cartArray[i].name +
+            "'>+</button>" +  " $ " +
+            cartArray[i].total +            
+            "</li>";
+        }
+
+        $("#show-cart").html(output);
+        $("#count-cart").html(shoppingCart.countCart());
+        $("#total-cart").html(shoppingCart.totalCart());
+        $("#type-Discount").html(shoppingCart.typeDiscount());
+        $("#total-Discount").html(shoppingCart.totalDiscount());
+        $("#other-Total").html(shoppingCart.totalCart());
+      }
+
+      $("#show-cart").on("click", ".delete-item", function (event) {
+        var name = $(this).attr("data-name");
+        shoppingCart.removeItemFromCartAll(name);
+        displayCart();
+      });
+
+      $("#show-cart").on("click", ".subtract-item", function (event) {
+        var name = $(this).attr("data-name");
+        shoppingCart.removeItemFromCart(name);
+        displayCart();
+      });
+
+      $("#show-cart").on("click", ".plus-item", function (event) {
+        var name = $(this).attr("data-name");
+        shoppingCart.addItemToCart(name, 0, 1);
+        displayCart();
+      });
+
+      $("#show-cart").on("change", ".item-count", function (event) {
+        var name = $(this).attr("data-name");
+        var count = Number($(this).val());
+        shoppingCart.setCountForItem(name, count);
+        displayCart();
+      });
+
+      displayCart();
+    </script>
+  </body>
+</html>
